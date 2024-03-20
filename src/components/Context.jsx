@@ -63,7 +63,6 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetApiDAta(`${API}query=${state.query}&page=${state.page}`);
-    console.log("Demoooo => ", API);
   }, [state.query, state.page]);
   //whenever we change the value of state.query it will be loaded
 
