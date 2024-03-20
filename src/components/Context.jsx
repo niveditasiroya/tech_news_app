@@ -21,7 +21,7 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" }); // this is define into action method in reducer.jsx file
 
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { referrerPolicy: "unsafe_url" });
       const data = await res.json(); //for system read call a json
       console.log(data);
       dispatch({
