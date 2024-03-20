@@ -21,7 +21,11 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" }); // this is define into action method in reducer.jsx file
 
     try {
-      const res = await fetch(url, { referrerPolicy: "unsafe_url" });
+      const res = await fetch(url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await res.json(); //for system read call a json
       console.log(data);
       dispatch({
@@ -59,6 +63,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetApiDAta(`${API}query=${state.query}&page=${state.page}`);
+    console.log("Demoooo => ", API);
   }, [state.query, state.page]);
   //whenever we change the value of state.query it will be loaded
 
